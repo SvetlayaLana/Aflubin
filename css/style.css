@@ -65,6 +65,7 @@ body {
   padding: 20px 15px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header .header-logo {
   max-width: 127px;
@@ -176,6 +177,75 @@ body {
   backdrop-filter: blur(3px);
   margin-right: 18px;
   padding-top: 5px;
+}
+
+.scene-2 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scene-2 .scene-2-img {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+.scene-2 .scene-2-img .scene-2-img-block {
+  position: relative;
+}
+.scene-2 .scene-2-img img {
+  display: block;
+  width: 100%;
+}
+.scene-2 .scene-2-img img[alt=woman] {
+  position: relative;
+  top: 36px;
+  max-width: 270px;
+}
+.scene-2 .scene-2-img img[alt=man] {
+  position: absolute;
+  max-width: 183px;
+  top: -10px;
+  left: -100px;
+}
+.scene-2 .scene-2-img img[alt=girl] {
+  position: absolute;
+  max-width: 130px;
+  left: -60px;
+  bottom: -25px;
+}
+.scene-2 .scene-2-img img[alt=family] {
+  position: relative;
+  top: 35px;
+  max-width: 390px;
+  margin-right: 70px;
+}
+.scene-2 .scene-2-img img[alt=ball] {
+  position: absolute;
+  top: -5px;
+  left: -40px;
+  width: 473px;
+}
+.scene-2 .scene-2-text {
+  width: 50%;
+  margin-left: 20px;
+  padding-right: 15px;
+}
+.scene-2 .scene-2-text .scene-2-text-list {
+  list-style: none;
+  padding: 0;
+}
+.scene-2 .scene-2-text .scene-2-text-list li {
+  margin-bottom: 11px;
+  padding-left: 30px;
+  background: url("../img/list-style.png") no-repeat 0 6px;
+}
+
+.scene-3 .scene-2-img {
+  width: 50%;
+}
+.scene-3 .scene-2-text {
+  width: 50%;
 }
 
 .footer {
