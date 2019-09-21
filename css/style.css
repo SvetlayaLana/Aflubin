@@ -37,7 +37,7 @@ body {
   color: black;
   margin: 0;
   padding: 0;
-  height: 1000px;
+  height: 3000px;
 }
 
 .btn {
@@ -231,40 +231,34 @@ body {
   position: relative;
 }
 .scene-2 .scene-img .scene-img-block .woman {
-  background: url("../img/screen2-woman.png") no-repeat center;
-  background-size: cover;
-  width: 270px;
-  height: 270px;
+  display: block;
+  max-width: 270px;
+  width: 100%;
   position: relative;
   top: 36px;
 }
 .scene-2 .scene-img .scene-img-block .man {
-  background: url("../img/scren2-small.png") no-repeat center;
-  background-size: cover;
+  display: block;
   position: absolute;
-  width: 183px;
-  height: 183px;
+  max-width: 183px;
+  width: 100%;
   top: -10px;
   left: -100px;
 }
 .scene-2 .scene-img .scene-img-block .girl {
-  background: url("../img/scren2-small.png") no-repeat center;
-  background-size: cover;
+  display: block;
   position: absolute;
-  width: 130px;
-  height: 130px;
+  max-width: 130px;
+  width: 100%;
   left: -60px;
   bottom: -25px;
 }
 .scene-2 .scene-img .scene-img-block .ball {
   display: none;
-  background: url("../img/aflubin-ball.png") no-repeat center;
-  background-size: cover;
   position: absolute;
   top: -5px;
   left: -40px;
   width: 473px;
-  height: 473px;
 }
 .scene-2 .scene-text {
   width: 60%;
