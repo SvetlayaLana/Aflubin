@@ -1,9 +1,19 @@
-$(window).on('scroll',function () {
-   console.log('scrolling');
+console.log($(window).height());
+$('.main').css('height', $(window).height()-150);
+$(window).resize(function () {
+    $('.main').css('height', $(window).height()-150);
+});
+
+$(window).scroll(function (e) {
+   console.log(e.screenY);
    $.get('snippets/scene2-snippet.html', function (data) {
        $('.main').html(data);
    })
 });
+
+
+
+// let scrollMagicController = new ScrollMagic();
 
 $('#shift').mousedown(function () {
     $(document).mousemove(function (e) {

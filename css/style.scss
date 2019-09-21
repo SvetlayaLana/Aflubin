@@ -39,6 +39,7 @@ body{
   color: black;
   margin: 0;
   padding: 0;
+  height: 1000px;
 }
 
 .btn{
@@ -93,9 +94,9 @@ body{
 }
 
 .main {
-  position: relative;
-  flex-grow: 1;
-  overflow-scrolling: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .virus{
@@ -321,7 +322,9 @@ body{
 
 .footer {
   height: 150px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 
   .footer-promo-block {
     position: absolute;
