@@ -60,7 +60,7 @@ body{
   width: 100%;
 
   .container{
-    max-width: 940px;
+    max-width: 970px;
     width: 100%;
     margin: 0 auto;
     padding: 20px 15px 0;
@@ -95,7 +95,19 @@ body{
 .main {
   position: relative;
   flex-grow: 1;
+  overflow-scrolling: auto;
 }
+
+.virus{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 80px;
+  height: 76px;
+}
+
 
 .scene-1 {
   position: relative;
@@ -123,6 +135,28 @@ body{
     display: flex;
     top: 0;
     left: 95vw;
+
+    .scene-1-shifting-panel-scroll{
+      position: absolute;
+      left: 0;
+      bottom: 9px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      div{
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        font-weight: 500;
+        margin-bottom: 23px;
+      }
+      img{
+        display: block;
+        margin: 5px 12px;
+      }
+    }
 
     .scene-1-shifting-panel-shift {
       position: relative;
@@ -198,64 +232,68 @@ body{
 }
 
 .scene-2{
+  max-width: 970px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .scene-2-img{
+  .scene-img{
     width: 40%;
     display: flex;
     justify-content: flex-end;
-    .scene-2-img-block{
+    padding-right: 10px;
+    .scene-img-block{
       position: relative;
-    }
-    img{
-      display: block;
-      width: 100%;
 
-      &[alt='woman']{
+      .woman{
+        background: url("../img/screen2-woman.png") no-repeat center;
+        background-size: cover;
+        width: 270px;
+        height: 270px;
         position: relative;
         top: 36px;
-        max-width: 270px;
-      }
 
-      &[alt='man']{
+      }
+      .man{
+        background: url("../img/scren2-small.png") no-repeat center;
+        background-size: cover;
         position: absolute;
-        max-width: 183px;
+        width: 183px;
+        height: 183px;
         top: -10px;
         left: -100px;
       }
-
-      &[alt='girl']{
+      .girl{
+        background: url("../img/scren2-small.png") no-repeat center;
+        background-size: cover;
         position: absolute;
-        max-width: 130px;
+        width: 130px;
+        height: 130px;
         left: -60px;
         bottom: -25px;
       }
 
-      &[alt='family']{
-        position: relative;
-        top: 35px;
-        max-width: 390px;
-        margin-right: 70px;
-      }
-
-      &[alt='ball']{
+      .ball{
+        display: none;
+        background: url("../img/aflubin-ball.png") no-repeat center;
+        background-size: cover;
         position: absolute;
         top: -5px;
         left: -40px;
         width: 473px;
+        height: 473px;
       }
     }
   }
 
-  .scene-2-text{
-    width: 50%;
-    margin-left: 20px;
-    padding-right: 15px;
+  .scene-text{
+    width: 60%;
 
-    .scene-2-text-list{
+    .scene-text-list{
       list-style: none;
       padding: 0;
 
@@ -269,10 +307,14 @@ body{
 }
 
 .scene-3{
-  .scene-2-img{
+  .scene-img{
     width: 50%;
+
+    .woman{
+      margin-right: 88px;
+    }
   }
-  .scene-2-text{
+  .scene-text{
     width: 50%;
   }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans|Roboto:400,500,700&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -59,7 +59,7 @@ body {
   width: 100%;
 }
 .header .container {
-  max-width: 940px;
+  max-width: 970px;
   width: 100%;
   margin: 0 auto;
   padding: 20px 15px 0;
@@ -90,6 +90,17 @@ body {
 .main {
   position: relative;
   flex-grow: 1;
+  overflow-scrolling: auto;
+}
+
+.virus {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 80px;
+  height: 76px;
 }
 
 .scene-1 {
@@ -116,6 +127,26 @@ body {
   display: flex;
   top: 0;
   left: 95vw;
+}
+.scene-1 .scene-1-shifting-panel .scene-1-shifting-panel-scroll {
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.scene-1 .scene-1-shifting-panel .scene-1-shifting-panel-scroll div {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  font-weight: 500;
+  margin-bottom: 23px;
+}
+.scene-1 .scene-1-shifting-panel .scene-1-shifting-panel-scroll img {
+  display: block;
+  margin: 5px 12px;
 }
 .scene-1 .scene-1-shifting-panel .scene-1-shifting-panel-shift {
   position: relative;
@@ -180,71 +211,80 @@ body {
 }
 
 .scene-2 {
+  max-width: 970px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.scene-2 .scene-2-img {
+.scene-2 .scene-img {
   width: 40%;
   display: flex;
   justify-content: flex-end;
+  padding-right: 10px;
 }
-.scene-2 .scene-2-img .scene-2-img-block {
+.scene-2 .scene-img .scene-img-block {
   position: relative;
 }
-.scene-2 .scene-2-img img {
-  display: block;
-  width: 100%;
-}
-.scene-2 .scene-2-img img[alt=woman] {
+.scene-2 .scene-img .scene-img-block .woman {
+  background: url("../img/screen2-woman.png") no-repeat center;
+  background-size: cover;
+  width: 270px;
+  height: 270px;
   position: relative;
   top: 36px;
-  max-width: 270px;
 }
-.scene-2 .scene-2-img img[alt=man] {
+.scene-2 .scene-img .scene-img-block .man {
+  background: url("../img/scren2-small.png") no-repeat center;
+  background-size: cover;
   position: absolute;
-  max-width: 183px;
+  width: 183px;
+  height: 183px;
   top: -10px;
   left: -100px;
 }
-.scene-2 .scene-2-img img[alt=girl] {
+.scene-2 .scene-img .scene-img-block .girl {
+  background: url("../img/scren2-small.png") no-repeat center;
+  background-size: cover;
   position: absolute;
-  max-width: 130px;
+  width: 130px;
+  height: 130px;
   left: -60px;
   bottom: -25px;
 }
-.scene-2 .scene-2-img img[alt=family] {
-  position: relative;
-  top: 35px;
-  max-width: 390px;
-  margin-right: 70px;
-}
-.scene-2 .scene-2-img img[alt=ball] {
+.scene-2 .scene-img .scene-img-block .ball {
+  display: none;
+  background: url("../img/aflubin-ball.png") no-repeat center;
+  background-size: cover;
   position: absolute;
   top: -5px;
   left: -40px;
   width: 473px;
+  height: 473px;
 }
-.scene-2 .scene-2-text {
-  width: 50%;
-  margin-left: 20px;
-  padding-right: 15px;
+.scene-2 .scene-text {
+  width: 60%;
 }
-.scene-2 .scene-2-text .scene-2-text-list {
+.scene-2 .scene-text .scene-text-list {
   list-style: none;
   padding: 0;
 }
-.scene-2 .scene-2-text .scene-2-text-list li {
+.scene-2 .scene-text .scene-text-list li {
   margin-bottom: 11px;
   padding-left: 30px;
   background: url("../img/list-style.png") no-repeat 0 6px;
 }
 
-.scene-3 .scene-2-img {
+.scene-3 .scene-img {
   width: 50%;
 }
-.scene-3 .scene-2-text {
+.scene-3 .scene-img .woman {
+  margin-right: 88px;
+}
+.scene-3 .scene-text {
   width: 50%;
 }
 
