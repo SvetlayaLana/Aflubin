@@ -1,127 +1,205 @@
-console.log($(window).height());
+//initializing page
+
+//scroll to top while refreshing
 $(window).scrollTop(0);
+
+//set section size when resizing window and refreshing, 150px - footer height
 $('.main').css('height', $(window).height() - 150);
 $(window).resize(function () {
     $('.main').css('height', $(window).height() - 150);
 });
 
-console.log('scroll', $(window).scrollTop());
+$.get('snippets/scene1-snippet.html', function (data) {
+
+    $('#scene')
+        .addClass('scene-1')
+        .html(data);
+
+});
+
+// console.log('scroll', $(window).scrollTop());
 
 $(window).scroll(function (e) {
     let scrollTop = $(this).scrollTop();
-    console.log(scrollTop);
-    if (scrollTop <= 500 && $('.scene-1').length === 0) {
-        $('.main').fadeOut(function () {
-            $.get('snippets/scene1-snippet.html', function (data) {
-                $('.main').html(data).fadeIn();
+    // console.log(scrollTop);
+    /*if(scrollTop < 500){
+        scrollTop = 0;
+    }else if(scrollTop >= 500 && scrollTop < 1000){
+        scrollTop = 500;
+    }else if(scrollTop >= 1000 && scrollTop < 1500){
+        scrollTop = 1000;
+    }else{
+        scrollTop
+    }*/
+    if (!$('#scene').hasClass('scene-1')) {
+        $('.header-img').attr('src', 'img/logo-black.png');
+        $('.footer-2plus-block img').attr('src', 'img/humans-black.png');
+        $('.footer-2plus-block-text').css('color', 'black');
+    }
 
-            })
+    if (scrollTop <= 500 && !$('#scene').hasClass('scene-1')) {
+        $('#scene')
+            .removeClass()
+            .addClass('scene-1')
+            .hide();
+        $.get('snippets/scene1-snippet.html', function (data) {
+            $('.header-img').attr('src', 'img/logo-white.png');
+            $('.footer-2plus-block img').attr('src', 'img/humans-white.png');
+            $('.footer-2plus-block-text').css('color', 'white');
+            $('#scene')
+                .html(data)
+                .fadeIn();
+
         });
     } else if (scrollTop > 500 && scrollTop <= 1000) {
-        if ($('.scene-2').length === 0 || $('.scene-3').length !== 0) {
-            $('.main').fadeOut(function () {
-                // $('.ball').css('display', 'none');
-                $.get('snippets/scene2-snippet.html', function (data) {
+        if ($('#scene').hasClass('scene-1')/* || $('#scene').hasClass('scene-3')*/) {
+            $('#scene').hide();
+            $.get('snippets/scene2-snippet.html', function (data) {
+                $('#scene')
+                    .removeClass()
+                    .addClass('scene-2')
+                    .html(data)
+                    .fadeIn();
 
-                    $('.main').html(data).fadeIn();
-
-                })
+                $('.ball').hide();
             });
+
+        } else if ($('#scene').hasClass('scene-3')) {
+
+            $.get('snippets/scene2-text-snippet.html', function (data) {
+                $('#scene')
+                    .removeClass()
+                    .addClass('scene-2');
+
+                $('.scene-text')
+                    .html(data);
+
+                $(".scene-img-block .changeable")
+                    .attr('src', 'img/screen2-woman.png')
+                    .animate({
+                        maxWidth: '270px',
+                    }, 1000);
+                $('.ball').hide();
+                $('.man, .girl').fadeIn(700);
+            });
+        }
+    } else if (scrollTop > 1000 && scrollTop <= 1500) {
+        if ($('#scene').hasClass('scene-2')) {
+            console.log('load scene-3');
+
+            $.get('snippets/scene3-snippet.html', function (data) {
+                $('.man, .girl').fadeOut(700);
+
+                $('#scene')
+                    .removeClass()
+                    .addClass('scene-3');
+
+                $('.scene-text')
+                    .html(data);
+
+                $(".scene-img-block .changeable")
+                    .attr('src', 'img/screen3-photo.png')
+                    .animate({
+                        maxWidth: '390px',
+                    }, 1000, function () {
+                        $('.ball').fadeIn(500);
+                    });
+
+            });
+        } else if ($('#scene').hasClass('scene-4')) {
+
         }
 
 
-    } else if (scrollTop > 1000 && scrollTop <= 1500 && $('.scene-3').length === 0) {
-        $('.scene-img-block img:nth-child(n+2)').fadeOut(700);
-        $('.scene-text').fadeOut(300, function () {
-            $.get('snippets/scene3-snippet.html', function (data) {
-                $('.scene-2').addClass('scene-3');
-                $('.scene-text').html(data).fadeIn(500,function () {
-                    $(".scene-img-block img:first-child").attr('src', 'img/screen3-photo.png').animate({
-                        maxWidth: '390px',
-                    }, 1000);
-                    $('.ball').fadeIn();
-                });
-
-            });
-        });
-
-
-    }else if(scrollTop > 1500 && scrollTop <= 2000 && $('.scene-4').length === 0){
+    } else if (scrollTop > 1500 && scrollTop <= 2000 && !$('#scene').hasClass('scene-4')) {
+        $('#scene')
+            .removeClass()
+            .addClass('scene-4');
         $('.ball').fadeOut();
-        $('.scene-text').fadeOut(300, function () {
-            $.get('snippets/scene4-snippet.html', function (data) {
-                $('.scene-3').addClass('scene-4');
-                $('.scene-text').html(data).fadeIn(500,function () {
-                    $(".scene-img-block img:first-child").attr('src', 'img/screen4-1.png').animate({
-                        maxWidth: '385px',
-                    }, 1000);
+        console.log('load scene-4');
+        $.get('snippets/scene4-snippet.html', function (data) {
 
-                })
-            })
-        })
-
-
-    }
-
-
-    /*else if(scrollTop > 200 && $('.scene-3').length === 0){
-        $('.scene-img-block div:nth-child(n+2)').fadeOut();
-        $('.scene-2').fadeOut(300, function () {
-
-            $.get('snippets/scene3-snippet.html', function (data) {
-                $('.scene-text').html(data).fadeIn(500);
+            $('.scene-text').html(data).fadeIn(500, function () {
+                $(".scene-img-block .changeable")
+                    .attr({
+                        'src': 'img/screen4-1.png',
+                        'alt': 'gorechavka'
+                    })
+                    .animate({
+                        maxWidth: '100px',
+                    }, 1000)
+                    .removeClass('changeable');
             });
-            $(this).addClass('scene-3');
 
-            $(".scene-img-block div:first-child").css('background-image', 'url(img/screen3-photo.png)').fadeIn(function () {
-
-                $(this).animate({
-                    width: '390px',
-                    height: '390px',
-                }, 500)
-
-
-            });
-        }).fadeIn(500, function () {
-            $('.ball').fadeIn();
+            loadImages();
         });
-    }*//*else{
+
+    } else if (scrollTop > 2000 && scrollTop <= 2500) {
+        if (!$('#scene').hasClass('scene-5')) {
+            $('#scene')
+                .removeClass()
+                .addClass('scene-5');
+            $.get('snippets/scene5-snippet.html', function (data) {
+                $('#scene').html(data);
+            });
+        } else {
+            $('h3').text('Как принимать таблетки?');
+            $('#scene-5-text-1').html('Дети в возрасте от 5 до 12 лет – ½ таблетки.<br>' +
+                '            Взрослые и дети в возрасте от 12 лет – 1 таблетка.<br>' +
+                '            Для быстрого улучшения состояния препарат принимать 3 раза в сутки');
+            $('#scene-5-text-2').text(' Принимать разовую дозу таблеток 2 раза в день до выздоровления');
+            $('#glass-drop').attr('src', 'img/glass.png');
+        }
+
+
+    } else if (scrollTop > 2500 && scrollTop <= 3000 && $('#scene').hasClass('scene-5')) {
+        $('h3').text('Как принимать капли?');
+        $('#scene-5-text-1').html(
+            'Дети в возрасте от 2 до 4 лет – 2-4 капли. <br>' +
+            'Дети в возрасте от 5 до 12 лет – 5-9 капель. <br>' +
+            'Взрослые и дети в возрасте от 12 лет – по 10 капель. <br>' +
+            'Для быстрого улучшения состояния препарат принимать каждые полчаса-час, но не более 8 раз в сутки');
+        $('#scene-5-text-2').text('Принимать разовую дозу капель 3 раза в день до выздоровления');
+        $('#glass-drop').attr('src', 'img/water-drop.png');
+    }
+});
+
+function loadImages() {
+    $('.scene-img-block img:nth-child(n+2)').remove();
+    $('.scene-img-block').prepend(
+        '<img src="img/screen4-2.png" alt="borez">',
+        '<img src="img/screen4-3.png" alt="perestupen">',
+        '<img src="img/screen4-4.png" alt="milk acid">',
+        '<img src="img/screen4-5.png" alt="metal">');
+}
+
+/*else if(scrollTop > 200 && $('.scene-3').length === 0){
+    $('.scene-img-block div:nth-child(n+2)').fadeOut();
+    $('.scene-2').fadeOut(300, function () {
+
+        $.get('snippets/scene3-snippet.html', function (data) {
+            $('.scene-text').html(data).fadeIn(500);
+        });
+        $(this).addClass('scene-3');
+
+        $(".scene-img-block div:first-child").css('background-image', 'url(img/screen3-photo.png)').fadeIn(function () {
+
+            $(this).animate({
+                width: '390px',
+                height: '390px',
+            }, 500)
+
+
+        });
+    }).fadeIn(500, function () {
+        $('.ball').fadeIn();
+    });
+}*//*else{
        $.get('snippets/scene1-snippet.html', function (data) {
            $('.main').html(data);
        })
    }*/
 
-})
-;
-
-
-// shift panel on the first screen
-
-$('#shift').mousedown(function () {
-    $(document).mousemove(function (e) {
-        if (e.pageX >= 0) {
-            $('.scene-1-shifting-panel').css('left', e.pageX);
-        } else {
-            return;
-        }
-        if (e.pageX <= $('.footer-2plus-block').offset().left) {
-            $('.footer-2plus-block img').attr('src', 'img/humans-black.png');
-            $('.footer-2plus-block-text').css('color', 'black');
-        } else {
-            $('.footer-2plus-block img').attr('src', 'img/humans-white.png');
-            $('.footer-2plus-block-text').css('color', 'white');
-        }
-
-        if (e.pageX <= $('.header-logo').offset().left) {
-            $('.header-img').attr('src', 'img/logo-black.png');
-        } else {
-            $('.header-img').attr('src', 'img/logo-white.png');
-        }
-    });
-    $(document).mouseup(function () {
-        $(document).off('mousemove');
-    })
-});
 
 let virus = $('.virus');
 
@@ -147,6 +225,8 @@ let virus = $('.virus');
     })
 
 })();*/
+
+
 
 
 

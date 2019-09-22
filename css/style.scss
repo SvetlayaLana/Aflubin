@@ -1,66 +1,67 @@
 @import "const";
 
-@mixin setup-font-line($font-size, $line-height){
+@mixin setup-font-line($font-size, $line-height) {
   font-size: $font-size;
   line-height: $line-height;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 h1,
 h2,
-h3{
-  font-family:'Roboto', sans-serif;
+h3 {
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   color: $text-color;
 }
 
-h1{
+h1 {
   @include setup-font-line(36px, 1.28);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-h2{
-  @include  setup-font-line(24px, 1.5);
+h2 {
+  @include setup-font-line(24px, 1.5);
   text-transform: uppercase;
 }
 
-h3{
+h3 {
   @include setup-font-line(18px, 1.33);
   color: black;
 }
 
-body{
+body {
   font-family: 'Roboto', sans-serif;
   @include setup-font-line(16px, 1.5);
   color: black;
   margin: 0;
   padding: 0;
-  height: 3000px;
+  height: 4000px;
 }
 
-.btn{
+.btn {
   background-color: $banana-yellow;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   @include setup-font-line(16px, 1.5);
   color: $text-color;
   border: none;
-  &:hover{
+
+  &:hover {
     background-color: $banana-yellow-hover;
   }
 }
 
-.header{
+.header {
   position: fixed;
   top: 0;
   z-index: 3;
   width: 100%;
 
-  .container{
+  .container {
     max-width: 970px;
     width: 100%;
     margin: 0 auto;
@@ -70,17 +71,17 @@ body{
     align-items: center;
   }
 
-  .header-logo{
+  .header-logo {
     max-width: 127px;
     height: 60px;
 
-    .header-img{
+    .header-img {
       display: block;
       width: 100%;
     }
   }
 
-  .header-button{
+  .header-button {
     width: 207px;
     height: 50px;
     border-radius: 25px;
@@ -99,7 +100,7 @@ body{
   width: 100%;
 }
 
-.virus{
+.virus {
   display: block;
   position: absolute;
   top: 0;
@@ -137,7 +138,7 @@ body{
     top: 0;
     left: 95vw;
 
-    .scene-1-shifting-panel-scroll{
+    .scene-1-shifting-panel-scroll {
       position: absolute;
       left: 0;
       bottom: 9px;
@@ -145,7 +146,7 @@ body{
       flex-direction: column;
       justify-content: flex-end;
 
-      div{
+      div {
         font-size: 10px;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -153,7 +154,8 @@ body{
         font-weight: 500;
         margin-bottom: 23px;
       }
-      img{
+
+      img {
         display: block;
         margin: 5px 12px;
       }
@@ -232,7 +234,10 @@ body{
   }
 }
 
-.scene-2{
+.scene-2,
+.scene-3,
+.scene-4,
+.scene-5{
   max-width: 970px;
   width: 100%;
   margin: 0 auto;
@@ -242,15 +247,16 @@ body{
   justify-content: center;
   align-items: center;
 
-  .scene-img{
+  .scene-img {
     width: 40%;
     display: flex;
     justify-content: flex-end;
     padding-right: 10px;
-    .scene-img-block{
+
+    .scene-img-block {
       position: relative;
 
-      .woman{
+      .changeable {
         display: block;
         max-width: 270px;
         width: 100%;
@@ -258,7 +264,8 @@ body{
         top: 36px;
 
       }
-      .man{
+
+      .man {
         display: block;
         position: absolute;
         max-width: 183px;
@@ -266,7 +273,8 @@ body{
         top: -10px;
         left: -100px;
       }
-      .girl{
+
+      .girl {
         display: block;
         position: absolute;
         max-width: 130px;
@@ -275,8 +283,8 @@ body{
         bottom: -25px;
       }
 
-      .ball{
-        display: none;
+      .ball {
+        display: block;
         position: absolute;
         top: -5px;
         left: -40px;
@@ -285,10 +293,10 @@ body{
     }
   }
 
-  .scene-text{
+  .scene-text {
     width: 60%;
 
-    .scene-text-list{
+    .scene-text-list {
       list-style: none;
       padding: 0;
 
@@ -301,16 +309,152 @@ body{
   }
 }
 
-.scene-3{
-  .scene-img{
+.scene-3,
+.scene-4{
+  .scene-img {
     width: 50%;
 
-    .woman{
+    .scene-img-block{
       margin-right: 88px;
     }
   }
-  .scene-text{
+
+  .scene-text {
     width: 50%;
+  }
+}
+
+.scene-4 {
+  .scene-img-block {
+    img:nth-child(-n+4) {
+      position: absolute;
+      display: block;
+      max-width: 100px;
+    }
+
+    img:nth-child(1) {
+      top: 0;
+      left: -30px;
+    }
+
+    img:nth-child(2) {
+      top: 80px;
+      left: -100px;
+    }
+
+    img:nth-child(3) {
+      bottom: 5px;
+      left: -100px;
+    }
+
+    img:nth-child(4) {
+      bottom: -70px;
+      left: -30px;
+    }
+
+    img:nth-child(5) {
+      display: block;
+      max-width: 270px !important;
+      width: 100%;
+      position: relative;
+      top: 36px;
+    }
+  }
+
+  .scene-text {
+    position: relative;
+
+    h2 {
+      position: relative;
+      right: 78px;
+      margin-bottom: 58px;
+    }
+
+    .arrow {
+      position: absolute;
+      left: -60px;
+      display: block;
+      height: 56px;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &.up {
+        top: 50%;
+      }
+
+      &.down {
+        bottom: 0;
+      }
+    }
+
+    .slider {
+      height: 144px;
+      overflow: hidden;
+
+
+      .slider-item {
+        height: 100%;
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      /*.slider-text{
+        margin-bottom: 20px;
+      }*/
+    }
+
+  }
+}
+
+.scene-5{
+  flex-direction: column;
+
+  h2{
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-top: 80px;
+  }
+
+  .scene-5-container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .scene-5-block{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3{
+      margin: 0;
+    }
+
+    .scene-5-block-text{
+      height: 142px;
+    }
+
+    .scene-5-img-block{
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+
+      h2{
+        margin: 0;
+      }
+
+      img{
+        display: block;
+        max-width: 120px;
+        width: 100%;
+      }
+
+      div{
+        max-width: 240px;
+      }
+    }
   }
 }
 
