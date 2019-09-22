@@ -319,7 +319,7 @@ body {
 .scene-4 .scene-img-block img:nth-child(-n+4) {
   position: absolute;
   display: block;
-  max-width: 100px;
+  max-width: 100px !important;
 }
 .scene-4 .scene-img-block img:nth-child(1) {
   top: 0;

@@ -329,7 +329,7 @@ body {
     img:nth-child(-n+4) {
       position: absolute;
       display: block;
-      max-width: 100px;
+      max-width: 100px!important;
     }
 
     img:nth-child(1) {
