@@ -24,3 +24,43 @@ $('#shift').mousedown(function () {
         $(document).off('mousemove');
     })
 });
+
+$(function () {
+    setUpViruses1('.scene-1-shifting-panel');
+
+    $('.virus1').each(function () {
+        let $target = $(this);
+        animateDiv1($target);
+    });
+
+
+    function setUpViruses1(selector) {
+        let randQuantity = Math.floor(Math.random() * 5) + 5; //between 5 and 9
+
+        for (let i = 0; i < randQuantity; i++) {
+            let randSize = Math.floor(Math.random() * 51) + 30;// between 30 and 80
+            let randY = Math.floor(Math.random() * $(selector).height());
+            let randX = Math.floor(Math.random() * $(selector).width());
+            $(selector).append(`<img class="virus1" src="img/virus.png" alt="virus" height="${randSize}px" style="top:${randY}px;left: ${randX}px ">`);
+        }
+    }
+
+    function animateDiv1($target) {
+        if ($target.length !== 0) {
+            let newq = makeNewPosition($target.parent());
+            let oldq = $target.offset();
+            let speed = calcSpeed([oldq.top, oldq.left], newq);
+
+            $target.animate({
+                top: newq[0],
+                left: newq[1]
+            }, speed, function () {
+
+                // animateDiv1($target);
+
+            });
+
+        }
+    }
+
+});

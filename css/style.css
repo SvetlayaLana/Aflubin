@@ -37,7 +37,7 @@ body {
   color: black;
   margin: 0;
   padding: 0;
-  height: 4000px;
+  height: 4500px;
 }
 
 .btn {
@@ -97,11 +97,7 @@ body {
 .virus {
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 80px;
-  height: 76px;
+  z-index: -2;
 }
 
 .scene-1 {
@@ -110,6 +106,11 @@ body {
   background-size: cover;
   height: 100%;
   overflow: hidden;
+}
+.scene-1 .virus1 {
+  display: block;
+  position: absolute;
+  z-index: 0;
 }
 .scene-1 .scene-1-product-img-block {
   position: absolute;
@@ -189,6 +190,8 @@ body {
   align-self: center;
   padding-left: 70px;
   margin: auto 0;
+  position: relative;
+  z-index: 1;
 }
 .scene-1 .scene-1-shifting-panel .scene-1-shifting-panel-content h2 {
   margin-top: 30px;
@@ -214,7 +217,9 @@ body {
 .scene-2,
 .scene-3,
 .scene-4,
-.scene-5 {
+.scene-5,
+.scene-6,
+.scene-7 {
   max-width: 970px;
   width: 100%;
   margin: 0 auto;
@@ -227,7 +232,9 @@ body {
 .scene-2 .scene-img,
 .scene-3 .scene-img,
 .scene-4 .scene-img,
-.scene-5 .scene-img {
+.scene-5 .scene-img,
+.scene-6 .scene-img,
+.scene-7 .scene-img {
   width: 40%;
   display: flex;
   justify-content: flex-end;
@@ -236,13 +243,17 @@ body {
 .scene-2 .scene-img .scene-img-block,
 .scene-3 .scene-img .scene-img-block,
 .scene-4 .scene-img .scene-img-block,
-.scene-5 .scene-img .scene-img-block {
+.scene-5 .scene-img .scene-img-block,
+.scene-6 .scene-img .scene-img-block,
+.scene-7 .scene-img .scene-img-block {
   position: relative;
 }
 .scene-2 .scene-img .scene-img-block .changeable,
 .scene-3 .scene-img .scene-img-block .changeable,
 .scene-4 .scene-img .scene-img-block .changeable,
-.scene-5 .scene-img .scene-img-block .changeable {
+.scene-5 .scene-img .scene-img-block .changeable,
+.scene-6 .scene-img .scene-img-block .changeable,
+.scene-7 .scene-img .scene-img-block .changeable {
   display: block;
   max-width: 270px;
   width: 100%;
@@ -252,7 +263,9 @@ body {
 .scene-2 .scene-img .scene-img-block .man,
 .scene-3 .scene-img .scene-img-block .man,
 .scene-4 .scene-img .scene-img-block .man,
-.scene-5 .scene-img .scene-img-block .man {
+.scene-5 .scene-img .scene-img-block .man,
+.scene-6 .scene-img .scene-img-block .man,
+.scene-7 .scene-img .scene-img-block .man {
   display: block;
   position: absolute;
   max-width: 183px;
@@ -263,7 +276,9 @@ body {
 .scene-2 .scene-img .scene-img-block .girl,
 .scene-3 .scene-img .scene-img-block .girl,
 .scene-4 .scene-img .scene-img-block .girl,
-.scene-5 .scene-img .scene-img-block .girl {
+.scene-5 .scene-img .scene-img-block .girl,
+.scene-6 .scene-img .scene-img-block .girl,
+.scene-7 .scene-img .scene-img-block .girl {
   display: block;
   position: absolute;
   max-width: 130px;
@@ -274,30 +289,38 @@ body {
 .scene-2 .scene-img .scene-img-block .ball,
 .scene-3 .scene-img .scene-img-block .ball,
 .scene-4 .scene-img .scene-img-block .ball,
-.scene-5 .scene-img .scene-img-block .ball {
+.scene-5 .scene-img .scene-img-block .ball,
+.scene-6 .scene-img .scene-img-block .ball,
+.scene-7 .scene-img .scene-img-block .ball {
   display: block;
   position: absolute;
-  top: -5px;
-  left: -40px;
-  width: 473px;
+  top: 0;
+  left: -38px;
+  width: 450px;
 }
 .scene-2 .scene-text,
 .scene-3 .scene-text,
 .scene-4 .scene-text,
-.scene-5 .scene-text {
+.scene-5 .scene-text,
+.scene-6 .scene-text,
+.scene-7 .scene-text {
   width: 60%;
 }
 .scene-2 .scene-text .scene-text-list,
 .scene-3 .scene-text .scene-text-list,
 .scene-4 .scene-text .scene-text-list,
-.scene-5 .scene-text .scene-text-list {
+.scene-5 .scene-text .scene-text-list,
+.scene-6 .scene-text .scene-text-list,
+.scene-7 .scene-text .scene-text-list {
   list-style: none;
   padding: 0;
 }
 .scene-2 .scene-text .scene-text-list li,
 .scene-3 .scene-text .scene-text-list li,
 .scene-4 .scene-text .scene-text-list li,
-.scene-5 .scene-text .scene-text-list li {
+.scene-5 .scene-text .scene-text-list li,
+.scene-6 .scene-text .scene-text-list li,
+.scene-7 .scene-text .scene-text-list li {
   margin-bottom: 11px;
   padding-left: 30px;
   background: url("../img/list-style.png") no-repeat 0 6px;
@@ -381,6 +404,13 @@ body {
 }
 
 .scene-5 {
+  justify-content: space-between;
+}
+.scene-5 .scene-img,
+.scene-5 .scene-text {
+  width: 48%;
+}
+.scene-5 .scene-img {
   flex-direction: column;
 }
 .scene-5 h2 {
@@ -388,37 +418,77 @@ body {
   margin-right: auto;
   margin-top: 80px;
 }
-.scene-5 .scene-5-container {
-  display: flex;
-  justify-content: space-between;
-}
-.scene-5 .scene-5-block {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.scene-5 .scene-5-block h3 {
+.scene-5 h3 {
   margin: 0;
 }
-.scene-5 .scene-5-block .scene-5-block-text {
-  height: 142px;
+.scene-5 .scene-5-block-text {
+  height: 125px;
 }
-.scene-5 .scene-5-block .scene-5-img-block {
+.scene-5 .scene-img-block {
   display: flex;
   align-items: center;
-  margin-top: auto;
+  margin-top: 15px;
+  margin-right: 0;
 }
-.scene-5 .scene-5-block .scene-5-img-block h2 {
-  margin: 0;
-}
-.scene-5 .scene-5-block .scene-5-img-block img {
+.scene-5 .scene-img-block img {
   display: block;
-  max-width: 120px;
-  width: 100%;
+  max-width: 130px;
+  margin-right: 20px;
 }
-.scene-5 .scene-5-block .scene-5-img-block div {
+.scene-5 .scene-img-block div {
   max-width: 240px;
+}
+.scene-5 .scene-text {
+  align-self: center;
+  margin-top: 15%;
+}
+
+.scene-6 .scene-img {
+  width: 50%;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+.scene-6 .scene-img h2 {
+  margin: 0 0 24px;
+}
+.scene-6 .scene-img .scene-img-block {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+}
+
+.scene-7 {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: end;
+}
+.scene-7 .scene-img,
+.scene-7 .scene-text {
+  width: 48%;
+}
+.scene-7 .scene-img {
+  justify-content: flex-start;
+}
+.scene-7 .scene-img-block {
+  position: relative;
+  max-width: 373px;
+}
+.scene-7 .scene-text h2 {
+  margin-bottom: 48px;
+}
+.scene-7 .scene-7-button {
+  width: 209px;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.1);
+}
+.scene-7 .scene-advertisement {
+  font-size: 14px;
+  line-height: 1.29;
+  color: #6f6f6f;
+  width: 100%;
+  margin: 16px 0 10px;
 }
 
 .footer {
