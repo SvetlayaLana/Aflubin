@@ -67,8 +67,10 @@ $(window).scroll(function (e) {
 
     } else if (scrollTop > 500 && scrollTop <= 1000) { //scene 2
         if ($('#scene').hasClass('scene-1')) {
+
             console.log('load scene 2');
-            $('script:last-child').remove();
+            // $('script:last-child').remove();
+
             $('#scene')
                 .removeClass()
                 .addClass('scene-2')

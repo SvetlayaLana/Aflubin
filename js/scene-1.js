@@ -28,9 +28,11 @@ $('#shift').mousedown(function () {
 $(function () {
     setUpViruses1('.scene-1-shifting-panel');
 
-    $('.virus1').each(function () {
-        let $target = $(this);
-        animateDiv1($target);
+    $(document).mousemove(function () {
+        $('.virus1').each(function () {
+            let $target = $(this);
+            animateDiv1($target);
+        });
     });
 
 
@@ -46,21 +48,17 @@ $(function () {
     }
 
     function animateDiv1($target) {
-        if ($target.length !== 0) {
-            let newq = makeNewPosition($target.parent());
-            let oldq = $target.offset();
-            let speed = calcSpeed([oldq.top, oldq.left], newq);
+        let newq = makeNewPosition($target.parent());
+        let oldq = $target.offset();
+        let speed = calcSpeed([oldq.top, oldq.left], newq);
 
-            $target.animate({
-                top: newq[0],
-                left: newq[1]
-            }, speed, function () {
+        $target.animate({
+            top: newq[0],
+            left: newq[1]
+        }, speed, function () {
+            // animateDiv1($target);
 
-                // animateDiv1($target);
-
-            });
-
-        }
+        });
     }
 
 });
