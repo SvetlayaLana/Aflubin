@@ -55,10 +55,7 @@ $(function () {
         $target.animate({
             top: newq[0],
             left: newq[1]
-        }, speed, function () {
-            // animateDiv1($target);
-
-        });
+        }, speed);
     }
 
 });
