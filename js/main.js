@@ -288,6 +288,9 @@ $(window).scroll(function (e) {
                 .attr({
                     src: 'img/fork&spoon.png',
                 })
+                .css({
+                    height: 'auto',
+                })
                 .animate({
                     maxWidth: '130px',
                 });
